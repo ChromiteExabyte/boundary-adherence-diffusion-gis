@@ -9,5 +9,5 @@ def boundary_adherence_curve(mask_gt, image_ai, tolerances):
         scores = calculate_boundary_adherence(mask_gt, image_ai, tolerance_px=t)
         f1_scores.append(scores["boundary_f1"])
 
-    auc = float(np.trapz(f1_scores, tolerances))
+    auc = float(np.trapezoid(f1_scores, tolerances))
     return tolerances, f1_scores, auc
